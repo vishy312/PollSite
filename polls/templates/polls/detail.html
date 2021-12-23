@@ -1,9 +1,9 @@
-<form action="{% url 'vote' question.id %}" method="post">
+<form action="{% url 'vote' detail.id %}" method="post">
 {% csrf_token %}
 <fieldset>
     <legend><h1>{{ detail.question }}</h1></legend>
-    {% if error_message %}
-    <p><strong>{{ error_message }}</strong></p>
+    {% if error %}
+    <p><strong>{{ error }}</strong></p>
     {% endif %}
     {% for choice in detail.choices.all %}
         <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
